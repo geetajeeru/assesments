@@ -1,0 +1,59 @@
+import "./styles.css";
+import { useState } from "react";
+
+export default function App() {
+  const [btnId, setBtnId] = useState("one");
+
+  const changeColor = (e) => {
+    setBtnId(e.target.id);
+  };
+
+  return (
+    <div className="App">
+      <button
+        className={btnId === "one" ? "redBtn" : ""}
+        id="one"
+        onClick={(e) => changeColor(e)}
+      ></button>
+      <button
+        className={btnId === "two" ? "yellowBtn" : ""}
+        id="two"
+        onClick={(e) => changeColor(e)}
+      ></button>
+      <button
+        className={btnId === "three" ? "greenBtn" : ""}
+        id="three"
+        onClick={(e) => changeColor(e)}
+      ></button>
+    </div>
+  );
+}
+
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 10px;
+  background-color: grey;
+  border: 0;
+}
+
+.redBtn {
+  background-color: red;
+}
+
+.greenBtn {
+  background-color: green;
+}
+
+.yellowBtn {
+  background-color: yellow;
+}
